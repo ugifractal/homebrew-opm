@@ -50,7 +50,7 @@ class Libf2c < Formula
 
       # pkg-config file; this is small enough to put inline here
       File::open("#{name}.pc", 'w') do |f|
-        f << <<-EOF.undent
+        f << <<-EOF.gsub(/^.{#{slice(/^ +/).size}}/, '')
           prefix=#{HOMEBREW_PREFIX}
           exec_prefix=${prefix}
           libdir=${exec_prefix}/lib
