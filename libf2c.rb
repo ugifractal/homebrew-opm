@@ -85,7 +85,7 @@ class Libf2c < Formula
     # library; we don't install the compiler itself)
     # this is a classic "Hello, World!" program translated from Fortran
     File::open("hello.c", "w") do |f|
-      f << <<-EOF.undent
+      f << <<-EOF.gsub(/^.{#{slice(/^ +/).size}}/, '')
         #include "f2c.h"
 
         integer s_wsle(cilist *);
